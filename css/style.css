@@ -2,52 +2,133 @@
    margin: 0;
    padding: 0;
    box-sizing: border-box;
-   position: relative;
+   list-style: none;
+   text-decoration: none;
 }
 
+body {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   min-height: 100vh;
+   background: #333;
+}
 
 .flex {
    display: flex;
    align-items: center;
    justify-content: center;
-}
-
-body {
-   width: 100vw;
-   height: 100vh;
-   background: #222;
+   flex-wrap: wrap;
 }
 
 .box {
-   display: flex;
-   flex-wrap: wrap;
-   justify-content: space-between;
+   position: relative;
+   margin: 50px;
+}
+
+.box .text {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   text-align: center;
+   color: #fff;
+}
+
+.box .text h2 {
+   font-size: 38px;
+   font-weight: 400;
+   letter-spacing: 1px;
+}
+
+.box .text small {
+   font-size: 18px;
+   display: block;
 }
 
 .circle {
-   width: 240px;
-   height: 240px;
+   width: 200px;
+   height: 200px;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   /* border: 1px solid #fff; */
 }
 
-h1 {
-   z-index: 1000;
-   color: aliceblue;
+.html {
+   --bgColor: #ee2d0b;
 }
 
-.points {
-   width: 2px;
+.css {
+   --bgColor: #002fff;
+}
+
+.javaScript {
+   --bgColor: #ffae00;
+}
+
+.sass {
+   --bgColor: #ff00c8;
+}
+
+.bootstrap {
+   --bgColor: #401a99;
+}
+
+.react {
+   --bgColor: #8a1a99;
+}
+
+.next {
+   --bgColor: #000000;
+}
+
+.typescript {
+   --bgColor: #0066ff;
+}
+
+.webpack {
+   --bgColor: #426eb1;
+}
+
+.firebase {
+   --bgColor: #e0e411;
+}
+
+.git {
+   --bgColor: #e47711;
+}
+
+.photoshop {
+   --bgColor: #091557;
+}
+
+.illustrator {
+   --bgColor: #663803;
+}
+
+.circle .points {
+   width: 3px;
    height: 15px;
-   background: #52a8ff;
+   background: #00000042;
    position: absolute;
-   transform: rotate(calc(var(--i)*var(--r))) translateY(-100px);
-   border-radius: 3px;
-   animation: glow .01s linear forwards;
-   animation-delay: calc(var(--i)*.01s);
+   transform: rotate(calc(var(--i)*var(--rot))) translateY(-100px);
+   /* animation: glow 0.04s linear forwards;
+   animation-delay: calc(var(--i)*0.01s); */
+}
+
+.points.marked {
+   animation: glow 0.04s linear forwards;
+   animation-delay: calc(var(--i)*0.03s);
 }
 
 @keyframes glow {
+   0% {
+      background: #0007;
+   }
    100% {
-      background: #51ff00;
-      box-shadow:  0 0 20px #51ff00;
+      background: var(--bgColor);
+      box-shadow: 0 20px var(--bgColor);
+      /* box-shadow: 0 0 20px var(--bgColor); apenas um traço */
    }
 }

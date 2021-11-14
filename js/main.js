@@ -1,19 +1,17 @@
-function op(elem) {
-   return document.querySelector(elem)
-}
+const circles = document.querySelectorAll('.circle')
+circles.forEach(elem => {
+   var dots = elem.getAttribute('data-dots')
+   var marked = elem.getAttribute('data-percent')
+   var percent = Math.floor(dots * marked / 100)
+   var rotate = 360 / dots
+   var points = ""
+   for (let i = 0; i < dots; i++) {
+      points += `<div class="points" style="--i: ${i}; --rot: ${rotate}deg"></div>`;
+   }
+   elem.innerHTML = points
 
-function opp(elem) {
-   return document.querySelectorAll(elem)
-}
-
-var circles = opp(".circle");
-
-circles.forEach((val) => {
-   var numDots = val.getAttribute("dot")
-   var pt = ""
-   var rot = 360 / numDots
-   for (var a = 1; a <= numDots; a++) {
-      pt += `<div class="points" style="--i: ${a}; --r: ${rot}deg"></div>`;
-      val.innerHTML = pt
+   const pointsMarked = elem.querySelectorAll('.points')
+   for (let i = 0; i < percent; i++) {
+      pointsMarked[i].classList.add('marked')
    }
 })
